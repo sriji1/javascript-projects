@@ -1,75 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
     <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box; 
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    main{
+      main {
         width: 100%;
         height: 100vh;
         padding: 35px;
-        background: #12B0E8;
-        display:flex;
-        justify-content:flex-start;
+        background: #12b0e8;
+        display: flex;
+        justify-content: flex-start;
         gap: 15px;
         align-items: center;
         flex-direction: column;
-    }
+      }
 
-    .row{
+      .row {
         width: 1000px;
         margin: 10px;
         /* border: 1px solid red; */
-        display:flex;
-        justify-content:center ;
+        display: flex;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
+      }
 
-    .row h2{
-     font-size: 45px;
-     color: beige;
-    }
-    .row h3{
-     font-size: 25px;
-     color: beige;
-    }
+      .row h2 {
+        font-size: 45px;
+        color: beige;
+      }
+      .row h3 {
+        font-size: 25px;
+        color: beige;
+      }
 
-    #search{
+      #search {
         font-size: 25px;
         padding: 10px;
         border-radius: 19px;
         border: none;
         outline: none;
         box-sizing: 1px 1px 5px grey;
-    }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="row">
-        <input type="search" id="search" placeholder="Search by City name">
+      <div class="row">
+        <input type="search" id="search" placeholder="Search by City name" />
+      </div>
+      <div class="row" id="weatherpart">
+        <div>
+          <img src="" alt="" />
         </div>
-        <div class="row" id="weatherpart">
-         <div>
-            <img src="" alt="">
-         </div>
-         <div>
-            <h2> 32 </h2>
-            <h3>Clear</h3>
-         </div>
+        <div>
+          <h2>32</h2>
+          <h3>Clear</h3>
         </div>
+      </div>
     </main>
 
-    <script>
-
-    </script>
-</body>
+    <script></script>
+  </body>
 </html>

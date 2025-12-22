@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number Guessing Game</title>
-    <link rel="stylesheet" href="Project1.css">
-</head>
-<body>
-<section id="mainsection">
-    <h1>Guess The <div>Number</div></h1>
-    <img id="arrow1" src="../images/arrow.png" alt="icon" style="height: 55px;">
-    <img id="happy" src="../images/happy.png" alt="icon" style="height: 65px;">
-   <div id="numop">??</div>
-     
-    <div class="gamepart">
-      
-     <div id="inputfield">
-      <p id="tip">Number should not be more than 100 or less than 1</p>
-      <input type="text" placeholder="Enter a Number" id="numip">
-      <button id="btnchk">CHECK</button>
-     </div>
-    
-    <div id="right">
+    <link rel="stylesheet" href="Project1.css" />
+  </head>
+  <body>
+    <section id="mainsection">
+      <h1>
+        Guess The
+        <div>Number</div>
+      </h1>
+      <img
+        id="arrow1"
+        src="../images/arrow.png"
+        alt="icon"
+        style="height: 55px"
+      />
+      <img
+        id="happy"
+        src="../images/happy.png"
+        alt="icon"
+        style="height: 65px"
+      />
+      <div id="numop">??</div>
 
-      <div id="hintpanel" >
-       <div id="hint"></div>
-       <div id="attempt"> Total no of attempts: 10</div>
+      <div class="gamepart">
+        <div id="inputfield">
+          <p id="tip">Number should not be more than 100 or less than 1</p>
+          <input type="text" placeholder="Enter a Number" id="numip" />
+          <button id="btnchk">CHECK</button>
+        </div>
+
+        <div id="right">
+          <div id="hintpanel">
+            <div id="hint"></div>
+            <div id="attempt">Total no of attempts: 10</div>
+          </div>
+
+          <div id="gameover"></div>
+          <div id="showscore">Maximum Score: 30</div>
+        </div>
       </div>
-       
-        <div id="gameover"></div>
-        <div id="showscore"> Maximum Score: 30</div>
-       
-      </div>  
-   </div> 
-   <h3 id="btnnewgm">Start a New Game</h3>
-</section>
-   <script src="Project1.js"></script>
-</body>
+      <h3 id="btnnewgm">Start a New Game</h3>
+    </section>
+    <script src="Project1.js"></script>
+  </body>
 </html>
