@@ -43,7 +43,7 @@ checkBtn.addEventListener("click", function () {
       document.querySelector("#arrow1").style.visibility = "hidden";
       document.querySelector("#happy").style.position = "relative";
       document.querySelector("#happy").style.visibility = "visible";
-      scoreline.innerHTML = `<img src="score2.png" alt="icon">Your Final Score: ${s1}`;
+      scoreline.innerHTML = `<img src="../images/score2.png" alt="icon">Your Final Score: ${s1}`;
       gameOver.style.display = "block";
       gameOver.innerHTML = `Well Done,in 1st attempt!!`;
       attemptline.style.visibility = "visible";
@@ -58,7 +58,7 @@ checkBtn.addEventListener("click", function () {
       document.querySelector("#arrow1").style.visibility = "hidden";
       document.querySelector("#happy").style.position = "relative";
       document.querySelector("#happy").style.visibility = "visible";
-      scoreline.innerHTML = `<img src="score2.png" alt="icon">Your Final Score: ${s1}`;
+      scoreline.innerHTML = `<img src="../images/score2.png" alt="icon">Your Final Score: ${s1}`;
       gameOver.style.display = "block";
       gameOver.innerHTML = `Correct!!`;
       attemptline.style.display = "none";
@@ -123,7 +123,7 @@ checkBtn.addEventListener("click", function () {
     tipline.style.display = "none";
     gameOver.style.display = "block";
     gameOver.innerHTML = `Game Over! Try Again`;
-    scoreline.innerHTML = `<img src="sadface.png" alt="icon">Your Final Score: ${s1}`;
+    scoreline.innerHTML = `<img src="../images/sadface.png" alt="icon">Your Final Score: ${s1}`;
     startGame.style.visibility = "visible";
     startGame.style.transition = "visibility 200ms linear 800ms";
   }
