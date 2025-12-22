@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown-Timer</title>
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+  <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Black Ops One', cursive;
+    }
+
+    .maincontent{
+        width: 100%;
+        height: 80vh;
+        background-color: rgb(47, 47, 47);
+        position: relative;
+    }
+
+    .countdowndiv{
+       width: 100%;
+       position: absolute;
+       top: 15%;
+       text-align: center;
+       color: #ebebeb;
+    }
+
+    .countdowndiv h1{
+        font-size: 3rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 4rem;
+        text-shadow: 0.1rem 0.6rem 0.8rem rgba(0, 0, 0, 0.5);
+    }
+
+    .countdown{
+        display: flex;
+        justify-content: center;
+    }
+
+    .countdown div{
+        width: 8rem;
+        height: 8rem;
+        background: linear-gradient(to bottom, rgba(53, 52, 52, 0.9)50%,rgba(79, 77, 77, 0.9)0);
+        margin: 0 2rem 6.7rem 2rem;
+        font-size: 5rem;
+        font-weight: 400;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: 0.8rem 2.5rem rgba(0, 0, 0, 0.564);
+        position: relative;
+    }
+
+    .countdown div::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0.24rem;
+        background-color: #3d3d3dfd;
+    }
+
+    .countdown div::after{
+        content: attr(class);
+        font-size: 1.7rem;
+        font-weight: 400;
+        position: absolute;
+        bottom: -3rem;
+    }
+
+    .reset{
+        width: 15rem;
+        height: 3rem;
+        border: none;
+        background-color: #7e2828;
+        font-size: 1.7rem;
+        font-weight: 400;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+        color: #eee;
+        text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.5);
+        outline: none;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="maincontent">
+        <div class="countdowndiv">
+            <h1>Coming soon....</h1>
+            <div class="countdown"></div>
+            <button class="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const countdown = document.querySelector(".countdown");
+
+        const intervaltimer= setInterval(()=>{
+          
+            const myEventDate = new Date(2023, 8, 21, 12, 0, 0);
+        // console.log(myEventDate);
+        const currentDate = new Date();
+        // console.log(currentDate);
+        const Timedifference = myEventDate- currentDate;
+        // console.log(Timedifference);
+
+        const remDays = Math.floor(Timedifference/(1000*60*60*24))+"";
+        // console.log(remDays);
+        const remHours = Math.floor((Timedifference/(1000*60*60))%24)+"";
+        // console.log(remHours);
+        const remMinutes = Math.floor((Timedifference/(1000*60))%60)+"";
+        // console.log(remMinutes);
+        const remSeconds = Math.floor((Timedifference/(1000))%60)+"";
+        // console.log(remSeconds);
+
+        countdown.innerHTML= `
+          <div class="Days">${remDays.length===1?`0${remDays}`:remDays}</div>
+          <div class="Hours">${remHours.length===1?`0${remHours}`:remHours}</div>
+          <div class="Minutes">${remMinutes.length===1?`0${remMinutes}`:remMinutes}</div>
+          <div class="Seconds">${remSeconds.length===1?`0${remSeconds}`:remSeconds}</div>
+        `;
+        if(Timedifference<0){
+            clearInterval(intervaltimer);
+            countdown.innerHTML='<h1>Here We Go!!</h1>'
+        }
+
+        document.querySelector('.reset').addEventListener('click',()=>{
+            clearInterval(intervaltimer);
+            const divs = document.querySelectorAll('.countdown div');
+            divs.forEach(div =>{
+                div.innerHTML="00";
+            });
+        });
+            
+        },1000);
+
+    </script>
+</body>
+</html>

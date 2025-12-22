@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    font-family: 'Quicksand', sans-serif;
+}
+
+html{
+   font-size: 62.5%;
+}
+
+.container{
+   width: 100%;
+   height: 100vh;
+   background-color: rgb(55, 55, 55); 
+   color: #eee;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+.calender{
+    width: 45rem;
+    height: 52rem;
+    background-color: #222227;
+   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.month{
+    width: 100%;
+    height: 12rem;
+    background-color: #0e836e;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month i{
+    font-size: 3rem;
+   cursor: pointer;
+   margin: 0 2rem;
+}
+
+.month h1{
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.month p{
+    font-size: 1.6rem;
+}
+
+.weekdays{
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display:flex;
+    align-items: center;
+}
+
+.weekdays div{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem/7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+}
+
+.days div{
+    font-size: 1.8rem;
+    margin: 0.3rem;
+    width: calc(40.2rem/7);
+    height: 5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today){
+    background-color: #262626;
+    border: 0.2rem dotted #595959;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.prev-date,
+.next-date{
+    opacity: 0.3;
+}
+
+.today{
+    background-color: #0e836e;
+    border-radius: 10%;
+}
+
+
+</style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="calender">
+            <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">
+                    <h1></h1>
+                    <p></p>
+                </div>
+                <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days">
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const mydate = new Date();
+// console.log(mydate);
+
+const showCalender= () => {
+    const monthfirstday = mydate.getDay();
+    console.log(monthfirstday);
+    
+    const lastdate = new Date(mydate.getFullYear(),mydate.getMonth()+1,0).getDate();
+    // console.log(lastdate);
+    
+    const prevmonthDays =  new Date(mydate.getFullYear(),mydate.getMonth(),0).getDate();
+      console.log(prevmonthDays);
+    
+    const  monthlastday = new Date(mydate.getFullYear(),mydate.getMonth()+1,0).getDay();
+    
+    //  console.log(monthlastday);
+    
+    const nextmonthdays = 7- monthlastday -1;
+    
+    
+    const allmonths=["January","February","March","April","May","June","July",
+    "August","September","October","November","December",]
+    
+    const monthdays= document.querySelector(".days")
+    
+    document.querySelector(".date h1").innerHTML = allmonths[mydate.getMonth()];
+    
+    document.querySelector(".date p").innerHTML= new Date().toDateString();
+    
+    
+    let days="";
+    
+    for(let x= monthfirstday;x>0;x--){
+        days +=`<div class="prev-date">${prevmonthDays-x+1}</div>`
+    }
+    
+
+
+    for(let i=1; i<=lastdate;i++){
+        if(i===new Date().getDate() && mydate.getMonth()===new Date().getMonth()){
+            days += `<div class="today">${i}</div>`;
+        }
+        else{
+        days += `<div>${i}</div>`;
+        }
+    }
+    
+
+    
+    for(let j=1;j<=nextmonthdays;j++){
+        days += `<div class="next-date">${j}</div>`;
+    }
+      monthdays.innerHTML=days;
+
+}
+
+
+document.querySelector('.prev').addEventListener('click',()=>{
+    mydate.setMonth(mydate.getMonth()-1);
+    showCalender();
+})
+
+document.querySelector('.next').addEventListener('click',()=>{
+    mydate.setMonth(mydate.getMonth()+1);
+    showCalender();
+})
+
+showCalender();
+
+    </script>
+</body>
+</html>

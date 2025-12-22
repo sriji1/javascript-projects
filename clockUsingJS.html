@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(0, 83, 83);
+           /* color: rgb(174, 108, 200); */
+        }
+
+        .datetime, .watch2{
+            font-family: 'Orbitron', sans-serif;
+            /* font-family: 'Poppins', sans-serif; */
+            height: 160px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 5% auto;
+            /* padding: 1.3rem; */
+            border: 2px dashed rgb(0, 234, 255);
+        }
+
+            .datetime .date{
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #fee7e7;
+            text-shadow: 1px 1px 25px rgb(18, 229, 244), 0 0 10px rgba(12, 221, 236,0);
+                
+            }
+
+            .datetime .date2{
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #fee7e7;
+            text-shadow: 1px 1px 25px rgb(18, 229, 244), 0 0 10px rgba(12, 221, 236,0); 
+                
+            }
+
+            .datetime .clock{
+            font-size: 3rem;
+            font-weight: 500;
+            color: #fee7e7;
+            text-shadow: 1px 1px 25px rgb(18, 229, 244), 0 0 10px rgba(12, 221, 236,0);
+            }
+        
+
+           .watch2{
+            visibility: hidden;
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: #fee7e7;
+            text-shadow: 1px 1px 25px rgb(18, 229, 244), 0 0 10px rgba(12, 221, 236,0);
+           }
+
+    </style>
+</head>
+<body>
+    <div class="datetime">
+        <div class="date">
+            <span id="dayname"></span>,
+            <span id="month"></span>
+            <span id="dnum"></span>,
+            <span id="year"></span>
+        </div>
+        <div class="date2"></div>
+        <div class="clock">
+        <span class="hr">?</span>
+        <span>:</span>
+        <span class="min">?</span>
+        <span>:</span>
+        <span class="sec">?</span>
+        <span class="ampm">&nbspAM</span>
+    </div>
+    </div>
+
+    <div class="watch2"></div>
+    <script>
+
+        var hourHand= document.querySelector('.hr');
+        var minHand= document.querySelector('.min');
+        var secHand=  document.querySelector('.sec');
+         document.querySelector('.date2').style.display ='none';
+
+         var secondWatch = document.querySelector('.watch2');
+
+            function changedate(){
+                var newdt = new Date();
+                var dname = newdt.getDay();
+                var mo = newdt.getMonth();
+                var dnum = newdt.getDate();
+                var yr = newdt.getFullYear();
+
+                var months = ['January','february','March','April','May','June','July','August','September','October','November','December'];
+
+                var week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+                var ids = ['dayname','month','dnum','year'];
+
+                var values =[week[dname], months[mo], dnum, yr];
+
+        for(var i =0; i<ids.length;i++){
+           document.getElementById(ids[i]).innerHTML=`&nbsp${values[i]}`;    
+                }
+              }
+            
+            setInterval(changedate,1000);
+            
+
+
+            //Method 1
+        function changeTime(){
+            var getadateTime = new Date();
+            // console.log(getadateTime);
+            var putzero=0;
+            var newhr = getadateTime.getHours();
+            // console.log(newhr);
+            
+            var newmin = getadateTime.getMinutes();
+            // console.log(newmin);
+           
+            var newsec = getadateTime.getSeconds();
+
+                if(newsec>=0&&newsec<=9){
+                    newsec= `${putzero}${newsec}`;
+                }
+            if(newmin>=0&&newmin<=9){
+                    newmin= `${putzero}${newmin}`;
+                }
+
+                if(newhr>12){
+                   newhr -= 12;
+                }
+
+            if(newhr===0){
+               let hr = 12; 
+           hourHand.innerHTML=`${hr}`;   
+                }     
+           
+           if(newhr>=12){
+            document.querySelector('.ampm').innerHTML='&nbspPM';
+           }
+
+           else{
+            document.querySelector('.ampm').innerHTML='&nbspAM';
+            
+           }
+
+                secHand.innerHTML=`${newsec}`;
+                minHand.innerHTML=`${newmin}`;
+
+                if(newhr!==0){
+                hourHand.innerHTML=`${newhr}`;
+                }
+        }
+
+        //   setInterval(changeTime,1000);
+
+
+        //Method 2
+
+          function startWatch(){
+                secondWatch.style.visibility = 'visible';
+               var newTime = new Date();
+               secondWatch.innerHTML = newTime.toLocaleTimeString();
+                
+            }
+           
+        //  setInterval(startWatch,1000);
+
+       
+       
+
+
+       
+        
+    </script>
+</body>
+</html>

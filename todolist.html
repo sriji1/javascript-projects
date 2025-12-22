@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            overflow: auto;
+        }
+        h1{
+          text-align: center;
+          margin: 5px 0;
+          background-color: aquamarine;
+        }
+     .container{     
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:25px;
+    padding: 35px;
+        }
+
+        .btn{
+            background-color: rgb(51, 127, 220);
+            box-shadow: 2px 3px 10px rgb(157, 157, 157);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            padding: 15px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container .box{
+            background-color: #ececec;
+            position: relative;
+            height: 200px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 10px;
+            border: none;
+            padding: 15px;
+            gap: 5px;
+        }
+
+        .box .details{
+            width: 100%;
+            height: 80%;
+            font-size: 14px;
+            /* border: 1px solid rgb(0, 47, 255); */
+            overflow-wrap: break-word;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+
+        .box .remove{
+            width: 25px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+            margin: 0 5px 0 5px
+        }
+
+     body #overlay{
+    position: fixed;
+    /* visibility: hidden; */
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(94, 94, 94, 0.427);
+    z-index: 5;
+    transition: all 0.35s ease;
+}
+
+#overlay #overlayinsidediv{
+    position: absolute;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    /* font-size: 12px; */
+    width: 350px; 
+    height: 355px;
+    padding: 15px;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    background-color: rgb(228, 228, 228);
+    color: rgb(0, 0, 0);
+    transition: all 0.35s ease;
+}
+
+#overlayinsidediv img{
+    width: 34px;
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    cursor: pointer;
+}
+
+#overlayinsidediv #desc{
+    /* position: absolute; */
+   width: 100%;
+   height: 50%;
+   background-color: white;
+   color: black;
+   padding: 4px;
+   font-size: 17px;
+   border: none;
+   resize: none;
+}
+
+#overlayinsidediv label{
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+#overlayinsidediv button{
+    /* position: absolute; */
+    top: 52%;
+    left: 42%;
+    padding: 5px 10px;
+    font-size: 19px;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(51, 127, 220);
+    color: white;
+    cursor: pointer;
+    margin: 15px 0;
+}
+#overlayinsidediv button:hover{
+    background: #77b2ff;
+}
+
+    </style>
+</head>
+<body>
+    <h1>To do List</h1>
+    <div class="container">
+           
+    </div>
+    <button class="btn">
+        <img src="plus2.png" alt="addicon">
+     </button>
+   
+    <div id="overlay">
+        <div id="overlayinsidediv">
+        <img id="cross" src="close.png" alt="icon">   
+       <label>To-do Description</label>
+       <textarea id="desc" rows="20" cols="50" autocomplete="off" required></textarea>
+       <span style="font-size: 14px; color: red;display: none;" >*Please Enter Details</span>
+       <button id="addbtn">Add</button>
+        </div>
+        </div> 
+        
+        <script src="todolist.js"></script>
+</body>
+</html>
