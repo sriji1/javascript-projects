@@ -17,7 +17,7 @@ addbtn.addEventListener('click',function(e){
     document.querySelector('span').style.display='none';
 var newdiv= document.createElement('div');
 newdiv.classList.add('box');
-newdiv.innerHTML=`<div class='details'></div><img class='remove' src='delete.png' alt='delete'>`; 
+newdiv.innerHTML=`<div class='details'></div><img class='remove' src='./images/delete.png' alt='delete'>`; 
 newdiv.querySelector('.details').innerHTML=textdetails.value; 
 var text = textdetails.value;
 console.log(text);
