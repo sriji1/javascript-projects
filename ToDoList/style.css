@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  padding: 0 15px;
+  background-color: white;
+}
+
+.todo-input {
+  padding: 4px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+}
+
+.todo-submitbtn {
+  padding: 8px 12px;
+  font-size: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: green;
+  color: #fffefe;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  width: 300px;
+  background-color: #dedede;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.todo-list li span {
+  flex: 1;
+}
