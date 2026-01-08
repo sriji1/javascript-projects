@@ -21,5 +21,20 @@ const tabsData = [
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-  let activeTab = tabsData[0];
+  let activeTab = tabsData[0].id;
+
+  function renderTabs() {
+    const tabContainer = document.querySelector("#tabContainer");
+    const contentContainer = document.querySelector("#tabContentContainer");
+
+    tabsData.forEach((tab) => {
+      const tabButton = document.createElement("button");
+      tabButton.className = "tabLinks";
+      tabButton.textContent = tab.title;
+      tabButton.setAttribute("data-tab", tab.id);
+      tabContainer.appendChild(tabButton);
+    });
+  }
+
+  renderTabs();
 });
