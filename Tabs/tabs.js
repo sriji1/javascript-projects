@@ -19,3 +19,7 @@ const tabsData = [
 
   // we can add more tabs
 ];
+
+document.addEventListener("DOMContentLoaded", function () {
+  let activeTab = tabsData[0];
+});
