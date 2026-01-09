@@ -40,6 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
       tabContent.innerHTML = `<h3>${tab.title}</h3><p>${tab.content}</p>`;
       contentContainer.appendChild(tabContent);
     });
+
+    tabContainer.addEventListener("click", function () {
+      if(event.target.){
+
+      }
+    });
   }
 
   renderTabs();
