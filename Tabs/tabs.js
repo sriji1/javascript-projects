@@ -33,13 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
       tabButton.textContent = tab.title;
       tabButton.setAttribute("data-tab", tab.id);
       tabContainer.appendChild(tabButton);
+
+      const tabContent = document.createElement("div");
+      tabContent.id = tab.id;
+      tabContent.className = "tabContent";
+      tabContent.innerHTML = `<h3>${tab.title}</h3><p>${tab.content}</p>`;
+      contentContainer.appendChild(tabContent);
     });
   }
-
-  const tabContent = document.createElement("div");
-  tabContent.id = tab.id;
-  tabContent.className = "tabContent";
-  tabContent.innerHTML = `<h3>${tab.title}</h3><p>${tab.content}</p>`
 
   renderTabs();
 });
