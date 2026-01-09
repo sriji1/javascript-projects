@@ -36,5 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  const tabContent = document.createElement("div");
+  tabContent.id = tab.id;
+  tabContent.className = "tabContent";
+  tabContent.innerHTML = `<h3>${tab.title}</h3><p>${tab.content}</p>`
+
   renderTabs();
 });
