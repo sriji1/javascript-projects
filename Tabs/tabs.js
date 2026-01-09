@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     tabContainer.addEventListener("click", function () {
-      if(event.target.){
+      if(event.target.matches(".tabLinks")){
 
       }
     });
