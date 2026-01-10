@@ -41,11 +41,25 @@ document.addEventListener("DOMContentLoaded", function () {
       contentContainer.appendChild(tabContent);
     });
 
-    tabContainer.addEventListener("click", function () {
-      if(event.target.matches(".tabLinks")){
-
+    tabContainer.addEventListener("click", function (event) {
+      if (event.target.matches(".tabLinks")) {
+        const tabId = event.target.getAttribute("data-tab");
+        if (tabId !== activeTab) {
+          openTab(tabId);
+          activeTab = tabId;
+        }
       }
     });
+  }
+
+  function openTab(tabId){
+     const tabConTents = document.querySelectorAll(".tabContentContainer");
+     const tabLinks = document.querySelectorAll(".tabLinks");
+
+     tabConTents.forEach((tab)=>tab.classList.remove("active"))
+     tabLinks.forEach((tab)=>tab.classList.remove("active"))
+
+     document.getElementById(tabId).classList.add("active")
   }
 
   renderTabs();
