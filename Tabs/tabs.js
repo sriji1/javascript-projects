@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openTab(tabId) {
-    const tabConTents = document.querySelectorAll(".tabContentContainer");
+    const tabConTents = document.querySelectorAll(".tabContent");
     const tabLinks = document.querySelectorAll(".tabLinks");
 
     tabConTents.forEach((tab) => tab.classList.remove("active"));
@@ -66,4 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   renderTabs();
+  document.getElementById(activeTab).classList.add("active");
+  document
+    .querySelector(`button[data-tab ="${activeTab}"]`)
+    .classList.add("active");
 });
