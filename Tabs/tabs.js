@@ -52,14 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function openTab(tabId){
-     const tabConTents = document.querySelectorAll(".tabContentContainer");
-     const tabLinks = document.querySelectorAll(".tabLinks");
+  function openTab(tabId) {
+    const tabConTents = document.querySelectorAll(".tabContentContainer");
+    const tabLinks = document.querySelectorAll(".tabLinks");
 
-     tabConTents.forEach((tab)=>tab.classList.remove("active"))
-     tabLinks.forEach((tab)=>tab.classList.remove("active"))
+    tabConTents.forEach((tab) => tab.classList.remove("active"));
+    tabLinks.forEach((tab) => tab.classList.remove("active"));
 
-     document.getElementById(tabId).classList.add("active")
+    document.getElementById(tabId).classList.add("active");
+    document
+      .querySelector(`button[data-tab ="${tabId}"]`)
+      .classList.add("active");
   }
 
   renderTabs();
