@@ -12,3 +12,5 @@ const sections = [
     content: "Content for section 3",
   },
 ];
+
+document.addEventListener("DOMContentLoaded", function () {});
