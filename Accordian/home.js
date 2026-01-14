@@ -26,5 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionHeader.innerHTML = `<p>${section.content}</p>`;
     sectionItem.appendChild(sectionHeader);
     sectionItem.appendChild(sectionContent);
+    accordianContainer.appendChild(sectionItem)
   });
 });
