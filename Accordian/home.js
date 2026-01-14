@@ -13,4 +13,9 @@ const sections = [
   },
 ];
 
-document.addEventListener("DOMContentLoaded", function () {});
+document.addEventListener("DOMContentLoaded", function () {
+  const accordianContainer = document.querySelector("#accordian");
+  sections.forEach(() => {
+    const sectionItems = document.createComment;
+  });
+});
