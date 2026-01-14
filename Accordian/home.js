@@ -25,5 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionContent.classList.add("accordian-content");
     sectionHeader.innerHTML = `<p>${section.content}</p>`;
     sectionItem.appendChild(sectionHeader);
+    sectionItem.appendChild(sectionContent);
   });
 });
