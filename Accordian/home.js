@@ -15,10 +15,11 @@ const sections = [
 
 document.addEventListener("DOMContentLoaded", function () {
   const accordianContainer = document.querySelector("#accordian");
-  sections.forEach(() => {
+  sections.forEach((section) => {
     const sectionItem = document.createElement("div");
     sectionItem.classList.add("accordian-item");
     const sectionHeader = document.createElement("div");
-    sectionHeader.classList.add("accordian-item");
+    sectionHeader.classList.add("accordian-header");
+    sectionHeader.taxtContent = section.title;
   });
 });
