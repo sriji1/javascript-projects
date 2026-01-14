@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionHeader = document.createElement("div");
     sectionHeader.classList.add("accordian-header");
     sectionHeader.taxtContent = section.title;
-    const sectionHeader = document.createElement("div");
-    sectionHeader.classList.add("accordian-header");
-    sectionHeader.taxtContent = section.title;
+    const sectionContent = document.createElement("div");
+    sectionContent.classList.add("accordian-content");
+    sectionHeader.innerHTML = `<p>${section.content}</p>`;
+    sectionItem.appendChild(sectionHeader);
   });
 });
