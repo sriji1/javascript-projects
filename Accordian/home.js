@@ -19,5 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionItem = document.createElement("div");
     sectionItem.classList.add("accordian-item");
     const sectionHeader = document.createElement("div");
+    sectionHeader.classList.add("accordian-item");
   });
 });
