@@ -20,12 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionItem.classList.add("accordian-item");
     const sectionHeader = document.createElement("div");
     sectionHeader.classList.add("accordian-header");
-    sectionHeader.taxtContent = section.title;
+    sectionHeader.textContent = section.title;
     const sectionContent = document.createElement("div");
     sectionContent.classList.add("accordian-content");
-    sectionHeader.innerHTML = `<p>${section.content}</p>`;
+    sectionContent.innerHTML = `<p>${section.content}</p>`;
     sectionItem.appendChild(sectionHeader);
     sectionItem.appendChild(sectionContent);
-    accordianContainer.appendChild(sectionItem)
+    accordianContainer.appendChild(sectionItem);
   });
+  accordianContainer
 });
