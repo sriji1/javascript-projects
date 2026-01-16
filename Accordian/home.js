@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionItem = header.parentNode;
     const content = sectionItem.querySelector(".accordian-content");
     const isActive = sectionItem.classlist.contain("active");
-    document.querySelectorAll(".accordian-item").forEach(()=>{
+    document.querySelectorAll(".accordian-item").forEach((item)=>{
       
     })
   });
