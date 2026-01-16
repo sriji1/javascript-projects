@@ -28,10 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionItem.appendChild(sectionContent);
     accordianContainer.appendChild(sectionItem);
   });
-  
+
   accordianContainer.addEventListener("click", function(event){
     const header = event.target.closest(".accordian-header");
     console.log(header);
-    
+    if(!header) return;
+    const sectionItem = header.parentNode
   })
 });
