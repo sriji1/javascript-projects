@@ -28,5 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionItem.appendChild(sectionContent);
     accordianContainer.appendChild(sectionItem);
   });
-  accordianContainer
+  accordianContainer.addEventListener("click", function(event){
+    const header = event.target.closest("")
+  })
 });
