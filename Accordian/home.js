@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const content = sectionItem.querySelector(".accordian-content");
     const isActive = sectionItem.classlist.contain("active");
     document.querySelectorAll(".accordian-item").forEach((item)=>{
-      
+      item.classlist.remove("active");
+      item.querySelector("")
     })
   });
 });
