@@ -35,10 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!header) return;
     const sectionItem = header.parentNode;
     const content = sectionItem.querySelector(".accordian-content");
-    const isActive = sectionItem.classlist.contain("active");
+    const isActive = sectionItem.classlist.contains("active");
     document.querySelectorAll(".accordian-item").forEach((item)=>{
       item.classlist.remove("active");
-      item.querySelector("")
-    })
+      item.querySelector(".accordian-content").style.display = "none"
+    });
+    if(!isActive){
+      sectionItem.classList.add("active");
+      content.style.display = "block";
+    }
   });
 });
