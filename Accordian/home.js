@@ -15,7 +15,7 @@ const sections = [
 
 document.addEventListener("DOMContentLoaded", function () {
   const accordianContainer = document.querySelector("#accordian");
-  sections.forEach((section) => {
+  sections.forEach((section, index) => {
     const sectionItem = document.createElement("div");
     sectionItem.classList.add("accordian-item");
     const sectionHeader = document.createElement("div");
@@ -27,6 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     sectionItem.appendChild(sectionHeader);
     sectionItem.appendChild(sectionContent);
     accordianContainer.appendChild(sectionItem);
+
+    if (index === 0) {
+      sectionItem.classList.add("active");
+      content.style.display = "block";
+    }
   });
 
   accordianContainer.addEventListener("click", function (event) {
@@ -36,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionItem = header.parentNode;
     const content = sectionItem.querySelector(".accordian-content");
     const isActive = sectionItem.classlist.contains("active");
-    document.querySelectorAll(".accordian-item").forEach((item)=>{
+    document.querySelectorAll(".accordian-item").forEach((item) => {
       item.classlist.remove("active");
-      item.querySelector(".accordian-content").style.display = "none"
+      item.querySelector(".accordian-content").style.display = "none";
     });
-    if(!isActive){
+    if (!isActive) {
       sectionItem.classList.add("active");
       content.style.display = "block";
     }
